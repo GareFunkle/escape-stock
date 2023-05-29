@@ -64,6 +64,7 @@ export default {
     color: var(--accent-color);
     transform: scale(1);
     transition: all 0.3s ease-in;
+    margin-right: 1rem;
 
     &:hover {
         transform: scale(1.4);

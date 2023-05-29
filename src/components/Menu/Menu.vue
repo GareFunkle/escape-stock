@@ -60,6 +60,7 @@ nav {
     left: 0;
     background-color: #333;
     transition: all 0.3s ease-in;
+    z-index: 10;
 
 
     li {

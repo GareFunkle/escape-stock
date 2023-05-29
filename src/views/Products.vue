@@ -1,7 +1,6 @@
 <template>
     <div class="products">
         <AddProducts />
-        <h2>{{ $route.params.category }}</h2>
 
         <div class="products__wrap">
             <ProductCard v-for="item in items" :key="item.id" :product="item" />

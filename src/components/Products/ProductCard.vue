@@ -5,7 +5,7 @@
         <div class="card__action">
             <EditProduct :productQuantity="product.quantity" :productId="product.id" />
             <UpdateProduct :productId="product.id" />
-            <DeleteProduct :productId="product.id" />
+            <DeleteProduct :productName="product.name" :productId="product.id" />
         </div>
     </div>
 </template>
@@ -50,10 +50,6 @@ export default {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        position: relative;
-        bottom: 0;
-
-
     }
 }
 </style>

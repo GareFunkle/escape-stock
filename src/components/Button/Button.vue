@@ -60,21 +60,16 @@ export default defineComponent({
 
 }
 
-.custom-button.delete {
-    background-color: var(--color-5);
+.custom-button.deleted {
+    background-color: var(--error-color);
 }
 
 .custom-button.default:hover,
-.custom-button.delete:hover {
-    background-color: white;
-    color: var(--color-5);
+.custom-button.deleted:hover {
+    background-color: rgb(181, 33, 33);
 }
 
 .custom-button.submit:hover {
     background-color: var(--primary-color);
-}
-
-.custom-button.delete:hover {
-    color: var(--color-1);
 }
 </style>

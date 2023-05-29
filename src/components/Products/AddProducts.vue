@@ -56,8 +56,8 @@ export default {
 
         async function addProduct() {
             await addDoc(collection(db, 'products'), {
-                category: productCategory.value,
-                name: productName.value,
+                category: productCategory.value.toLowerCase(),
+                name: productName.value.toLowerCase(),
                 quantity: productQuantity.value,
             });
             productCategory.value = ''
