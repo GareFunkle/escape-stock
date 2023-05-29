@@ -1,6 +1,5 @@
 <template>
     <div class="products">
-
         <AddProducts />
         <h2>{{ $route.params.category }}</h2>
 
@@ -15,7 +14,7 @@ import { collection, onSnapshot, where, query } from 'firebase/firestore';
 import AddProducts from '../components/Products/AddProducts.vue';
 import ProductCard from '../components/Products/ProductCard.vue';
 import { db } from '../data/Firebase/firebase';
-import { ref, onUnmounted, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 export default {
     name: "Products",
@@ -25,7 +24,6 @@ export default {
     },
     setup() {
         const items = ref([])
-
 
         const fetchProducts = () => {
             const route = useRoute();

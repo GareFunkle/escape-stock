@@ -33,7 +33,6 @@
                 </div>
 
                 <Button class="modal__button" type="submit" text="Ajouter" />
-
             </form>
         </div>
     </div>
@@ -78,6 +77,21 @@ export default {
     justify-content: center;
     align-items: center;
 
+    .material-icons {
+        padding: 1rem;
+        background: var(--accent-color);
+        border-radius: 1rem;
+        font-size: 3rem;
+        color: var(--background-color);
+        transition: all 0.3s ease-in;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--accent-color);
+            background: var(--background-color);
+        }
+    }
+
 }
 
 .add__products {
@@ -87,6 +101,7 @@ export default {
     top: 0;
     width: 100%;
     height: 100vh;
+    z-index: 10;
 
     .add__products-modal {
         position: absolute;

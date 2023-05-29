@@ -2,12 +2,25 @@
     <div class="card__products">
         <h3 class="card__title">{{ product.name }}</h3>
         <p>{{ product.quantity }}</p>
+        <div class="card__action">
+            <EditProduct :productQuantity="product.quantity" :productId="product.id" />
+            <UpdateProduct :productId="product.id" />
+            <DeleteProduct :productId="product.id" />
+        </div>
     </div>
 </template>
 
 <script>
+import EditProduct from '../Action/EditProduct.vue';
+import UpdateProduct from '../Action/UpdateProduct.vue';
+import DeleteProduct from '../Action/DeleteProduct.vue';
 export default {
     name: "ProductCard",
+    components: {
+        EditProduct,
+        UpdateProduct,
+        DeleteProduct
+    },
     props: {
         product: Object
     }
@@ -31,6 +44,16 @@ export default {
 
     &:hover {
         background: var(--primary-color);
+    }
+
+    .card__action {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        bottom: 0;
+
+
     }
 }
 </style>
