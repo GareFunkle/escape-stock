@@ -1,6 +1,6 @@
 <template>
   <Menu />
-  <router-view>
+  <router-view :key="$route.fullPath">
   </router-view>
 </template>
 
@@ -23,7 +23,9 @@ export default {
 }
 
 * {
+
   box-sizing: border-box;
+
 }
 
 body {
@@ -31,5 +33,30 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background: var(--secondary-color);
+
+  .material-icons {
+    padding: 1rem;
+    background: var(--accent-color);
+    border-radius: 1rem;
+    font-size: 3rem;
+    color: var(--background-color);
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--accent-color);
+      background: var(--background-color);
+    }
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .home__products,
+  .products__wrap {
+    justify-content: center;
+  }
+
 }
 </style>

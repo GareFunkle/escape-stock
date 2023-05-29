@@ -8,10 +8,12 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav" :class="{ 'is-active': isActive }">
-                <li><router-link to="/">Accueil</router-link></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><router-link to="/">Toute les Categories</router-link></li>
+                <li><router-link to="/carbon">Carbon</router-link></li>
+                <li><router-link to="/visserie">Visserie</router-link></li>
+                <li><router-link to="/stand-off">Stand-Off</router-link></li>
+                <li><router-link to="/supplement">Supplement</router-link></li>
+
             </ul>
         </nav>
     </header>
@@ -107,6 +109,7 @@ nav {
     .menu-toggle {
         display: none;
     }
+
 }
 </style>
   
