@@ -18,18 +18,53 @@
             <form class="form__modal" @submit.prevent="addProduct">
 
                 <div class="modal__input">
-                    <label for="productCategory">Categorie :</label>
-                    <input id="productCategory" v-model="productCategory" required />
+                    <label for="productCategory">Category :</label>
+                    <select v-model="product.category" name="categorie" id="productCategory">
+                        <option value="">Selectioner une categorie</option>
+                        <option value="carbon">Carbon</option>
+                        <option value="visserie">Visserie</option>
+                        <option value="standoff">Standoff</option>
+                        <option value="comnplement">Complement</option>
+                    </select>
+
                 </div>
+
+
 
                 <div class="modal__input">
                     <label for="productName">Nom du produit :</label>
-                    <input id="productName" v-model="productName" required />
+                    <input id="productName" v-model="product.name" required />
                 </div>
 
                 <div class="modal__input">
                     <label for="productQuantity">Quantité :</label>
-                    <input id="productQuantity" type="number" v-model.number="productQuantity" required />
+                    <input id="productQuantity" type="number" v-model.number="product.stock" required />
+                </div>
+
+
+
+                <div class="modal__input">
+                    <label for="productPrice">Prix unitaire :</label>
+                    <input id="productPrice" type="text" v-model="product.price" required />
+                </div>
+
+                <h2>Champs pour la progress-bar</h2>
+
+                <div class="modal__input">
+                    <label for="productMaxStock">Stock max :</label>
+                    <input id="productMaxStock" type="number" v-model.number="product.maxStock" required />
+                </div>
+
+                <div class="modal__input">
+                    <label for="orangeThreshold">Seuil orange</label>
+                    <input id="orangeThreshold" v-model.number="product.orangeThreshold" placeholder="Seuil Orange"
+                        type="number" />
+                </div>
+
+                <div class="modal__input">
+                    <label for="redThreshold">Seuil rouge</label>
+                    <input id="redThreshold" v-model.number="product.redThreshold" placeholder="Seuil Rouge"
+                        type="number" />
                 </div>
 
                 <Button class="modal__button" type="submit" text="Ajouter" />
@@ -45,30 +80,51 @@ import { db } from '../../data/Firebase/firebase';
 import Button from '../Button/Button.vue';
 
 export default {
+    name: 'AddProduct',
     components: {
         Button
     },
     setup() {
         const isOpen = ref(false)
-        const productCategory = ref('')
-        const productName = ref('');
-        const productQuantity = ref(1);
 
-        async function addProduct() {
-            await addDoc(collection(db, 'products'), {
-                category: productCategory.value.toLowerCase(),
-                name: productName.value.toLowerCase(),
-                quantity: productQuantity.value,
-            });
-            productCategory.value = ''
-            productName.value = '';
-            productQuantity.value = 1;
-            isOpen.value = false
-        }
+        const product = ref({
+            category: '',
+            name: '',
+            price: 0,
+            stock: 0,
+            maxStock: 0,
+            orangeThreshold: 0,
+            redThreshold: 0,
+        });
 
-        return { isOpen, productCategory, productName, productQuantity, addProduct };
+        const addProduct = async () => {
+            try {
+                await addDoc(collection(db, 'products'), product.value);
+                console.log('Produit ajouté avec succès');
+                product.value = {
+                    category: '',
+                    name: '',
+                    price: 0,
+                    stock: 0,
+                    maxStock: 0,
+                    orangeThreshold: 0,
+                    redThreshold: 0,
+                }; // reset the product
+
+                isOpen.value = false
+            } catch (error) {
+                console.error('Erreur lors de l\'ajout du produit: ', error);
+            }
+        };
+
+        return {
+            isOpen,
+            product,
+            addProduct,
+        };
     },
 };
+
 </script>
 
 <style lang="scss">

@@ -2,10 +2,15 @@
     <div class="card__products">
         <h3 class="card__title">{{ product.name }}</h3>
         <p>{{ product.quantity }}</p>
+        <p>{{ product.price }} € </p>
         <div class="card__action">
             <EditProduct :productQuantity="product.quantity" :productId="product.id" />
             <UpdateProduct :productId="product.id" />
             <DeleteProduct :productName="product.name" :productId="product.id" />
+        </div>
+        <div class="wrap__progress-bar">
+            <ProgressBar :product="product" />
+
         </div>
     </div>
 </template>
@@ -14,15 +19,20 @@
 import EditProduct from '../Action/EditProduct.vue';
 import UpdateProduct from '../Action/UpdateProduct.vue';
 import DeleteProduct from '../Action/DeleteProduct.vue';
+import ProgressBar from '../Progress/ProgressBar.vue';
 export default {
     name: "ProductCard",
     components: {
         EditProduct,
         UpdateProduct,
-        DeleteProduct
+        DeleteProduct,
+        ProgressBar
     },
     props: {
         product: Object
+    },
+    setup(props) {
+        console.log('product:', props.product);
     }
 }
 </script>
@@ -41,6 +51,7 @@ export default {
     border-radius: calc(5rem / 3);
     cursor: pointer;
     transition: all 0.3s ease-in;
+    box-sizing: border-box;
 
     &:hover {
         background: var(--primary-color);
