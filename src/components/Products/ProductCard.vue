@@ -49,6 +49,7 @@ export default {
     align-items: center;
     flex-direction: column;
     border: 1px solid var(--primary-color);
+    color: var(--background-color);
     // border-bottom: none;
     border-radius: calc(5rem / 3);
     cursor: pointer;
@@ -57,6 +58,7 @@ export default {
 
     &:hover {
         background: var(--primary-color);
+        color: white;
     }
 
     .card__action {

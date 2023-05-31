@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { collection, onSnapshot, where, query } from 'firebase/firestore';
+import { collection, onSnapshot, where, query, orderBy } from 'firebase/firestore';
 import AddProducts from '../components/Products/AddProducts.vue';
 import ProductCard from '../components/Products/ProductCard.vue';
 import { db } from '../data/Firebase/firebase';
@@ -27,7 +27,7 @@ export default {
         const fetchProducts = () => {
             const route = useRoute();
 
-            const q = query(collection(db, "products"), where("category", "==", route.params.category));
+            const q = query(collection(db, "products"), where("category", "==", route.params.category), orderBy("name"));
 
             onSnapshot(q, (querySnapshot) => {
                 const fetchedProducts = [];
