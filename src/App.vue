@@ -14,6 +14,12 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+
+  box-sizing: border-box;
+  // box-shadow: 0 0 0 3px red inset;
+}
+
 :root {
   --primary-color: #28527a;
   --secondary-color: #f4f9f9;
@@ -22,11 +28,6 @@ export default {
   --error-color: #e94560;
 }
 
-* {
-
-  box-sizing: border-box;
-
-}
 
 body {
   margin: 0;

@@ -1,7 +1,7 @@
 <template>
     <header>
         <nav>
-            <h1 class="logo">Fusion Stock</h1>
+            <img class="logo" src="../../../public/logo.png" alt="">
             <div class="menu-toggle" @click="toggleMenu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -35,60 +35,73 @@ export default {
 </script>
   
 <style scoped lang="scss">
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: white;
-    padding: 0.7em 2em;
-    position: relative;
-
-}
-
-.logo {
-    font-size: 1.5em;
-}
-
-.nav {
-    list-style: none;
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    width: 100%;
-    top: 60px;
-    left: 0;
-    background-color: #333;
-    transition: all 0.3s ease-in;
-    z-index: 10;
+header {
 
 
-    li {
-        margin: 1.5em 0;
-        text-align: center;
-    }
-
-    a {
-        color: white;
-        text-decoration: none;
-    }
-
-    &.is-active {
+    nav {
         display: flex;
-    }
-}
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        color: white;
+        padding: 0.7em 2em;
+        position: relative;
 
-.menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 2em;
-    height: 1.5em;
 
-    .bar {
-        height: 0.2em;
-        background-color: white;
-        border-radius: 10px;
+
+        .logo {
+            width: 5rem;
+        }
+
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 2em;
+            height: 1.5em;
+
+            .bar {
+                height: 0.2em;
+                background-color: white;
+                border-radius: 10px;
+            }
+        }
+
+        .nav {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            top: 60px;
+            left: 0;
+            background-color: #333;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            z-index: 10;
+
+
+
+
+            li {
+                margin: 1.5em 0;
+                text-align: center;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            &.is-active {
+                display: flex;
+                max-height: 500px;
+                opacity: 1;
+            }
+        }
     }
 }
 

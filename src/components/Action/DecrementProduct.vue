@@ -1,6 +1,6 @@
 <template>
     <span @click="isOpen = !isOpen" class="material-icons edit">
-        edit
+        remove
     </span>
 
     <div class="edit__product" v-if="isOpen">
@@ -25,11 +25,11 @@
 <script>
 import { ref } from 'vue';
 import { db } from '../../data/Firebase/firebase'
-import { doc, updateDoc, increment } from 'firebase/firestore';
+import { doc, updateDoc } from 'firebase/firestore';
 import Button from '../Button/Button.vue';
 
 export default {
-    name: 'AddStock',
+    name: 'DecrementStock',
     components: {
         Button
     },
@@ -41,7 +41,7 @@ export default {
         const addStock = async () => {
             try {
                 await updateDoc(doc(db, 'products', props.productId), {
-                    quantity: Math.max(0, props.productQuantity - quantityToAdd.value)
+                    stock: Math.max(0, props.productQuantity - quantityToAdd.value)
                 });
                 console.log('Stock mis à jour avec succès');
                 quantityToAdd.value = 0;

@@ -24,7 +24,31 @@
                 </div>
                 <div class="modal__input">
                     <label for="productQuantity"> Quantité :</label>
-                    <input id="productQuantity" v-model="product.quantity" placeholder="Quantité" type="number" />
+                    <input id="productQuantity" v-model="product.stock" placeholder="Quantité" type="number" />
+                </div>
+
+                <div class="modal__input">
+                    <label for="productPrice">Prix unitaire :</label>
+                    <input id="productPrice" type="text" v-model="product.price" required />
+                </div>
+
+                <h2>Champs pour la progress-bar</h2>
+
+                <div class="modal__input">
+                    <label for="productMaxStock">Stock max :</label>
+                    <input id="productMaxStock" type="number" v-model.number="product.maxStock" required />
+                </div>
+
+                <div class="modal__input">
+                    <label for="orangeThreshold">Seuil orange</label>
+                    <input id="orangeThreshold" v-model.number="product.orangeThreshold" placeholder="Seuil Orange"
+                        type="number" />
+                </div>
+
+                <div class="modal__input">
+                    <label for="redThreshold">Seuil rouge</label>
+                    <input id="redThreshold" v-model.number="product.redThreshold" placeholder="Seuil Rouge"
+                        type="number" />
                 </div>
 
                 <Button class="modal__button" @click="updateProduct" type="submit" text="Mettre à jour" />
@@ -52,7 +76,11 @@ export default {
         const product = ref({
             category: '',
             name: '',
+            stock: 0,
             price: 0,
+            maxStock: 0,
+            orangeThreshold: 0,
+            redThreshold: 0,
         });
 
         onMounted(async () => {
@@ -67,7 +95,11 @@ export default {
                 await updateDoc(doc(db, 'products', props.productId), {
                     category: product.value.category,
                     name: product.value.name,
-                    quantity: product.value.quantity,
+                    stock: product.value.stock,
+                    price: product.value.price,
+                    maxStock: product.value.maxStock,
+                    orangeThreshold: product.value.orangeThreshold,
+                    redThreshold: product.value.redThreshold,
                 });
                 console.log('Produit mis à jour avec succès');
                 isOpen.value = false

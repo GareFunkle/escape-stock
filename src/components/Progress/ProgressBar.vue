@@ -34,15 +34,19 @@ export default {
   
 <style lang="scss" scoped>
 .progress-bar {
+    display: flex;
     margin: 0;
     padding: 0;
-    width: calc(100% + 2rem); // Ajuste la largeur pour tenir compte des marges ou du padding
+    width: auto;
     height: 20px;
-    background-color: #eee;
+
 
     .progress-bar__fill {
         height: 100%;
         background-color: #4caf50;
+        border: 1px solid var(--primary-color);
+        border-radius: 0 0 5rem 5rem;
+        transition: width 0.3s ease-in-out;
     }
 }
 </style>
