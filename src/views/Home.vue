@@ -1,8 +1,6 @@
 <template>
     <div class="home">
-        <AddProducts />
-        <div class="wrap__category">
-
+        <!-- <div class="wrap__category">
             <div class="category">
                 <router-link class="category__link" to="carbon">carbon</router-link>
             </div>
@@ -15,19 +13,17 @@
             <div class="category">
                 <router-link class="category__link" to="complement">complement</router-link>
             </div>
-
-        </div>
+        </div> -->
+        <ProductChart />
     </div>
 </template>
 
 <script>
-import AddProducts from '../components/Products/AddProducts.vue';
-import ProductCard from '../components/Products/ProductCard.vue';
+import ProductChart from '../components/Products/ProductChart.vue';
 export default {
     name: "Home",
     components: {
-        AddProducts,
-        ProductCard
+        ProductChart
     },
 }
 </script>
