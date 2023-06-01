@@ -1,18 +1,19 @@
 <template>
     <header>
         <nav>
-            <img class="logo" src="/logo.png" alt="">
+            <router-link to="/">
+                <img class="logo" src="/logo.png" alt="">
+            </router-link>
             <div class="menu-toggle" @click="toggleMenu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
             <ul class="nav" :class="{ 'is-active': isActive }">
-                <li><router-link @click="toggleMenu" to="/">Toute les Categories</router-link></li>
                 <li><router-link @click="toggleMenu" to="/carbon">Carbon</router-link></li>
                 <li><router-link @click="toggleMenu" to="/visserie">Visserie</router-link></li>
                 <li><router-link @click="toggleMenu" to="/standoff">Standoff</router-link></li>
-                <li><router-link @click="toggleMenu" to="/supplement">Supplement</router-link></li>
+                <li><router-link @click="toggleMenu" to="/complement">Complement</router-link></li>
 
             </ul>
         </nav>
@@ -49,6 +50,9 @@ nav {
 .logo {
     width: 5rem;
     filter: drop-shadow(0 0 4px red);
+    transition: filter 3s ease-in-out;
+
+    animation: flash 3s ease-in infinite;
 
 }
 
@@ -91,6 +95,20 @@ nav {
         height: 0.2em;
         background-color: white;
         border-radius: 10px;
+    }
+}
+
+@keyframes flash {
+    0% {
+        filter: drop-shadow(0 0 4px red);
+        transition: filter 3s ease-in-out;
+
+    }
+
+    100% {
+        filter: drop-shadow(0 0 0px red);
+        transition: filter 3s ease-in-out;
+
     }
 }
 

@@ -1,6 +1,6 @@
 <template>
     <div class="add__open-modal">
-        <span @click="isOpen = !isOpen" class="material-icons">
+        <span @click="isOpen = !isOpen" class="material-icons add">
             note_add
         </span>
     </div>
@@ -133,18 +133,19 @@ export default {
     justify-content: center;
     align-items: center;
 
-    .material-icons {
+    .add {
         padding: 1rem;
-        background: var(--accent-color);
+        background: var(--grey-color);
         border-radius: 1rem;
         font-size: 3rem;
-        color: var(--background-color);
+        color: var(--secondary-color);
         transition: all 0.3s ease-in;
         cursor: pointer;
 
         &:hover {
-            color: var(--accent-color);
-            background: var(--background-color);
+            color: var(--grey-color);
+            background: var(--secondary-color);
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
         }
     }
 
@@ -167,7 +168,7 @@ export default {
         background: var(--secondary-color);
         padding: 1rem;
         height: auto;
-        border: 2px solid var(--primary-color);
+        border: 2px solid var(--grey-color);
         border-radius: 1rem;
 
         .icon__close-modal {
@@ -202,6 +203,8 @@ export default {
                 flex-direction: column;
                 margin-top: 1rem;
                 width: 100%;
+
+
             }
 
             .modal__button {

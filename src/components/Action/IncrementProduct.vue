@@ -1,5 +1,5 @@
 <template>
-    <span @click="isOpen = !isOpen" class="material-icons edit">
+    <span @click="isOpen = !isOpen" class="material-icons plus">
         add
     </span>
 
@@ -60,8 +60,8 @@ export default {
 };
 </script>
 <style lang="scss">
-.edit {
-    color: var(--accent-color);
+.plus {
+    color: var(--green-color);
     transform: scale(1);
     transition: all 0.3s ease-in;
     margin-right: 1rem;

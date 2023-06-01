@@ -44,7 +44,7 @@ export default {
     .progress-bar__fill {
         height: 100%;
         background-color: #4caf50;
-        border: 1px solid var(--primary-color);
+        border: 1px solid var(--grey-color);
         border-radius: 0 0 5rem 5rem;
         transition: width 0.3s ease-in-out;
     }

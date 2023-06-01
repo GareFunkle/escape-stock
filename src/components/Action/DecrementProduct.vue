@@ -1,5 +1,5 @@
 <template>
-    <span @click="isOpen = !isOpen" class="material-icons edit">
+    <span @click="isOpen = !isOpen" class="material-icons minus">
         remove
     </span>
 
@@ -60,8 +60,8 @@ export default {
 };
 </script>
 <style lang="scss">
-.edit {
-    color: var(--accent-color);
+.minus {
+    color: var(--error-color);
     transform: scale(1);
     transition: all 0.3s ease-in;
     margin-right: 1rem;
@@ -89,9 +89,11 @@ export default {
         background: var(--secondary-color);
         padding: 1rem;
         height: auto;
-        border: 2px solid var(--primary-color);
+        border: 2px solid var(--grey-color);
         border-radius: 1rem;
         z-index: 6;
+
+
 
         .icon__close-modal {
             display: flex;
@@ -111,6 +113,10 @@ export default {
 
                 }
             }
+        }
+
+        .title__modal {
+            color: var(--grey-color);
         }
 
         .form__modal {

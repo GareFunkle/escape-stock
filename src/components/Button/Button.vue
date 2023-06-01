@@ -56,7 +56,7 @@ export default defineComponent({
 }
 
 .custom-button.submit {
-    background-color: var(--background-color);
+    background-color: var(--green-color);
 
 }
 
@@ -70,6 +70,6 @@ export default defineComponent({
 }
 
 .custom-button.submit:hover {
-    background-color: var(--primary-color);
+    background-color: var(--grey-color);
 }
 </style>

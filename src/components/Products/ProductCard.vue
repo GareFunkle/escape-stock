@@ -48,17 +48,17 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid var(--primary-color);
-    color: var(--background-color);
-    // border-bottom: none;
+    border: 1px solid var(--grey-color);
+    color: var(--grey-color);
     border-radius: calc(5rem / 3);
     cursor: pointer;
     transition: all 0.3s ease-in;
     box-sizing: border-box;
 
     &:hover {
-        background: var(--primary-color);
-        color: white;
+        background: var(--grey-color);
+        color: var(--secondary-color);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
 
     .card__action {
