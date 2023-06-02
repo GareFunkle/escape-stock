@@ -24,7 +24,7 @@
                         <option value="carbon">Carbon</option>
                         <option value="visserie">Visserie</option>
                         <option value="standoff">Standoff</option>
-                        <option value="comnplement">Complement</option>
+                        <option value="complement">Complement</option>
                     </select>
 
                 </div>
