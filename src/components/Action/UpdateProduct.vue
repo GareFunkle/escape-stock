@@ -4,8 +4,8 @@
     </span>
 
 
-    <div v-if="isOpen" class="update__product">
-        <div class="update__product-modal">
+    <div v-if="isOpen" class="wrap__modal">
+        <div class="modal">
             <div @click="isOpen = !isOpen" class="icon__close-modal">
                 <span class="material-icons close">
                     cancel
@@ -32,7 +32,7 @@
                     <input id="productPrice" type="text" v-model="product.price" required />
                 </div>
 
-                <h2>Champs pour la progress-bar</h2>
+                <h2 class="title__modal">Champs pour la progress-bar</h2>
 
                 <div class="modal__input">
                     <label for="productMaxStock">Stock max :</label>
@@ -56,7 +56,7 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 import { ref, onMounted } from 'vue';
 import { db } from '../../data/Firebase/firebase';
@@ -129,68 +129,4 @@ export default {
         transition: all 0.3s ease-in;
     }
 }
-
-.update__product {
-    background: #00000081;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 10;
-
-    .update__product-modal {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: var(--secondary-color);
-        padding: 1rem;
-        height: auto;
-        border: 2px solid var(--primary-color);
-        border-radius: 1rem;
-        z-index: 6;
-
-        .icon__close-modal {
-            display: flex;
-            justify-content: end;
-
-
-            .close {
-                color: var(--error-color);
-                font-size: 1rem;
-                background: none;
-                padding: 0.2rem;
-                transition: all 0.3s ease-in;
-
-                &:hover {
-                    transform: scale(0.9);
-                    transition: all 0.3s ease-in;
-
-                }
-            }
-        }
-
-        .form__modal {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            .modal__input {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                margin-top: 1rem;
-                width: 100%;
-            }
-
-            .modal__button {
-                margin-top: 1rem;
-            }
-        }
-
-    }
-}
 </style>
-  

@@ -43,6 +43,7 @@ body {
   label {
     margin-bottom: 5px;
     font-weight: 500;
+    color: var(--grey-color);
   }
 
   select {
@@ -58,13 +59,91 @@ body {
   }
 
 
+
+  .wrap__modal {
+    background: #00000081;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+
+    .modal {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--secondary-color);
+      padding: 1rem;
+      height: auto;
+      border: 2px solid var(--grey-color);
+      border-radius: 1rem;
+
+      .icon__close-modal {
+        display: flex;
+        justify-content: end;
+
+
+        .close {
+          color: var(--error-color);
+          font-size: 1rem;
+          background: none;
+          padding: 0.2rem;
+          transition: all 0.3s ease-in;
+
+          &:hover {
+            transform: scale(0.9);
+            transition: all 0.3s ease-in;
+
+          }
+
+        }
+
+      }
+
+      .title__modal {
+        color: var(--grey-color);
+      }
+
+      .form__modal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .modal__input {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          margin-top: 0.5rem;
+          width: 100%;
+
+
+        }
+
+        .modal__button {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+
 }
+
+
 
 @media screen and (max-width: 768px) {
 
   .home__products,
   .products__wrap {
     justify-content: center;
+  }
+
+
+  .modal {
+    width: 80%;
   }
 
 }

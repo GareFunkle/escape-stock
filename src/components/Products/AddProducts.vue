@@ -5,8 +5,8 @@
         </span>
     </div>
 
-    <div v-if="isOpen" class="add__products">
-        <div class="add__products-modal">
+    <div v-if="isOpen" class="wrap__modal">
+        <div class="modal">
             <div @click="isOpen = !isOpen" class="icon__close-modal">
                 <span class="material-icons close">
                     cancel
@@ -149,70 +149,6 @@ export default {
         }
     }
 
-}
-
-.add__products {
-    background: #00000081;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 10;
-
-    .add__products-modal {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: var(--secondary-color);
-        padding: 1rem;
-        height: auto;
-        border: 2px solid var(--grey-color);
-        border-radius: 1rem;
-
-        .icon__close-modal {
-            display: flex;
-            justify-content: end;
-
-
-            .close {
-                color: var(--error-color);
-                font-size: 1rem;
-                background: none;
-                padding: 0.2rem;
-                transition: all 0.3s ease-in;
-
-                &:hover {
-                    transform: scale(0.9);
-                    transition: all 0.3s ease-in;
-
-                }
-            }
-        }
-
-        .form__modal {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            .modal__input {
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                margin-top: 1rem;
-                width: 100%;
-
-
-            }
-
-            .modal__button {
-                margin-top: 1rem;
-            }
-        }
-
-    }
 }
 </style>
   
