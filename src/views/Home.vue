@@ -1,19 +1,5 @@
 <template>
     <div class="home">
-        <!-- <div class="wrap__category">
-            <div class="category">
-                <router-link class="category__link" to="carbon">carbon</router-link>
-            </div>
-            <div class="category">
-                <router-link class="category__link" to="visserie">visserie</router-link>
-            </div>
-            <div class="category">
-                <router-link class="category__link" to="standoff">standoff</router-link>
-            </div>
-            <div class="category">
-                <router-link class="category__link" to="complement">complement</router-link>
-            </div>
-        </div> -->
         <ProductChart />
     </div>
 </template>
