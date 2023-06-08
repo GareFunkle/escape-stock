@@ -58,6 +58,10 @@ body {
     border-radius: 4rem;
   }
 
+  .material-icons {
+    cursor: pointer;
+  }
+
 
 
   .wrap__modal {
@@ -104,6 +108,11 @@ body {
 
       .title__modal {
         color: var(--grey-color);
+      }
+
+      .modal__title {
+        color: var(--grey-color);
+
       }
 
       .form__modal {

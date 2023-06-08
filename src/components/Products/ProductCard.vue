@@ -51,7 +51,6 @@ export default {
     border: 1px solid var(--grey-color);
     color: var(--grey-color);
     border-radius: calc(5rem / 3);
-    cursor: pointer;
     transition: all 0.3s ease-in;
     box-sizing: border-box;
 

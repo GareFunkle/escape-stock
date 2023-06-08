@@ -14,7 +14,7 @@
             <div class="form__modal">
                 <div class="modal__input">
 
-                    <input v-model.number="quantityToAdd" type="number" placeholder="Quantité à ajouter" />
+                    <input v-model.number="quantityToAdd" type="number" placeholder="Quantité à retirer" />
                 </div>
                 <Button class="modal__button" @click="addStock" type="submit" text="Ajouter" />
             </div>

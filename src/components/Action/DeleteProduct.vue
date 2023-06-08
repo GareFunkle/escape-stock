@@ -81,6 +81,11 @@ export default {
         border-radius: 1rem;
         z-index: 6;
 
+        .modal__title {
+            color: var(--grey-color);
+
+        }
+
         .form__modal {
             display: flex;
             flex-direction: column;
