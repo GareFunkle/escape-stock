@@ -1,8 +1,8 @@
 <template>
     <div class="card__products">
         <h3 class="card__title">{{ product.name }}</h3>
-        <p>{{ product.stock }} / {{ product.maxStock }} {{ product.unit }}</p>
-        <p>{{ product.price }} € </p>
+        <p class="card__quantity">{{ product.stock }} / {{ product.maxStock }} {{ product.unit }}</p>
+        <p class="card__price">{{ product.price }} € </p>
         <div class="card__action">
             <IncrementProduct :productQuantity="product.stock" :productId="product.id" />
             <DecrementProduct :productQuantity="product.stock" :productId="product.id" />
@@ -58,6 +58,19 @@ export default {
         background: var(--grey-color);
         color: var(--secondary-color);
         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    .card__title {
+        font-size: 1.4rem;
+    }
+
+    .card__quantity {
+        font-size: 1.2rem;
+    }
+
+    .card__price {
+        font-weight: bold;
+        font-size: 1.2rem;
     }
 
     .card__action {
