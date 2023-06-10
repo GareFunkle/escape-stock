@@ -20,6 +20,7 @@
 import { db } from '../../data/Firebase/firebase'
 import { doc, deleteDoc } from 'firebase/firestore';
 import { ref } from 'vue';
+import { useToast } from "vue-toastification";
 import Button from '../Button/Button.vue';
 
 export default {
@@ -29,16 +30,19 @@ export default {
     },
     props: ['productId', 'productName'],
     setup(props) {
-
+        const toast = useToast()
         const isOpen = ref(false)
 
         const deleteProduct = async () => {
             try {
                 await deleteDoc(doc(db, 'products', props.productId));
-                console.log('Produit supprimé avec succès');
                 isOpen.value = false;
+                toast.success("Vous avez supprimer " + props.productName)
+
             } catch (error) {
                 console.error('Erreur lors de la suppression du produit: ', error);
+                toast.error("une erreur est survenue si cela persiste veuillez contacter votre developpeur", error)
+
             }
         };
 

@@ -16,7 +16,7 @@
 
                     <input v-model.number="quantityToAdd" type="number" placeholder="Quantité à retirer" />
                 </div>
-                <Button class="modal__button" @click="addStock" type="submit" text="Ajouter" />
+                <Button class="modal__button" @click="decrementStock" type="submit" text="Ajouter" />
             </div>
         </div>
     </div>
@@ -26,6 +26,7 @@
 import { ref } from 'vue';
 import { db } from '../../data/Firebase/firebase'
 import { doc, updateDoc } from 'firebase/firestore';
+import { useToast } from "vue-toastification";
 import Button from '../Button/Button.vue';
 
 export default {
@@ -35,26 +36,28 @@ export default {
     },
     props: ['productId', 'productQuantity'],
     setup(props) {
+        const toast = useToast()
         const isOpen = ref(false)
         const quantityToAdd = ref(0);
 
-        const addStock = async () => {
+        const decrementStock = async () => {
             try {
                 await updateDoc(doc(db, 'products', props.productId), {
                     stock: Math.max(0, props.productQuantity - quantityToAdd.value)
                 });
-                console.log('Stock mis à jour avec succès');
                 quantityToAdd.value = 0;
                 isOpen.value = false;
+                toast.success("Vous avez retirer du stock")
             } catch (error) {
                 console.error('Erreur lors de la mise à jour du stock: ', error);
+                toast.error("une erreur est survenue si cela persiste veuillez contacter votre developpeur", error)
             }
         };
 
         return {
             isOpen,
             quantityToAdd,
-            addStock,
+            decrementStock,
         };
     },
 };

@@ -41,6 +41,11 @@
                     <input id="productQuantity" type="number" v-model.number="product.stock" required />
                 </div>
 
+                <div class="modal__input">
+                    <label for="productUnit">Unite :</label>
+                    <input id="productUnit" v-model="product.unit" required placeholder="Boite, piece..." />
+                </div>
+
 
 
                 <div class="modal__input">
@@ -77,7 +82,9 @@
 import { ref } from 'vue';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../data/Firebase/firebase';
+import { useToast } from "vue-toastification";
 import Button from '../Button/Button.vue';
+
 
 export default {
     name: 'AddProduct',
@@ -85,13 +92,16 @@ export default {
         Button
     },
     setup() {
+        const toast = useToast()
         const isOpen = ref(false)
+
 
         const product = ref({
             category: '',
             name: '',
             price: 0,
             stock: 0,
+            unit: '',
             maxStock: 0,
             orangeThreshold: 0,
             redThreshold: 0,
@@ -100,20 +110,21 @@ export default {
         const addProduct = async () => {
             try {
                 await addDoc(collection(db, 'products'), product.value);
-                console.log('Produit ajouté avec succès');
                 product.value = {
                     category: '',
                     name: '',
                     price: 0,
                     stock: 0,
+                    unit: '',
                     maxStock: 0,
                     orangeThreshold: 0,
                     redThreshold: 0,
                 }; // reset the product
-
+                toast.success("Fourniture ajouter avec succes !")
                 isOpen.value = false
             } catch (error) {
                 console.error('Erreur lors de l\'ajout du produit: ', error);
+                toast.error("une erreur est survenue si cela ce reproduit veuillez contacter votre devellopeur", error)
             }
         };
 

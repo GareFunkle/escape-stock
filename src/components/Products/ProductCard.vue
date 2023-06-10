@@ -1,7 +1,7 @@
 <template>
     <div class="card__products">
         <h3 class="card__title">{{ product.name }}</h3>
-        <p>{{ product.stock }} / {{ product.maxStock }}</p>
+        <p>{{ product.stock }} / {{ product.maxStock }} {{ product.unit }}</p>
         <p>{{ product.price }} € </p>
         <div class="card__action">
             <IncrementProduct :productQuantity="product.stock" :productId="product.id" />

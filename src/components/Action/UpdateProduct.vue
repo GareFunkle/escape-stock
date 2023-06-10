@@ -28,6 +28,11 @@
                 </div>
 
                 <div class="modal__input">
+                    <label for="productUnit">Unite :</label>
+                    <input id="productUnit" v-model="product.unit" required placeholder="Boite, piece..." />
+                </div>
+
+                <div class="modal__input">
                     <label for="productPrice">Prix unitaire :</label>
                     <input id="productPrice" type="text" v-model="product.price" required />
                 </div>
@@ -77,6 +82,7 @@ export default {
             category: '',
             name: '',
             stock: 0,
+            unit: '',
             price: 0,
             maxStock: 0,
             orangeThreshold: 0,
@@ -96,6 +102,7 @@ export default {
                     category: product.value.category,
                     name: product.value.name,
                     stock: product.value.stock,
+                    unit: product.value.unit,
                     price: product.value.price,
                     maxStock: product.value.maxStock,
                     orangeThreshold: product.value.orangeThreshold,

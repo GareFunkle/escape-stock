@@ -11,7 +11,6 @@ export default {
     name: 'ProgressBar',
     props: ['product'],
     setup(props) {
-        console.log('product in ProgressBar:', props.product);
         const progress = computed(() => (props.product.stock / props.product.maxStock) * 100);
 
         const color = computed(() => {
